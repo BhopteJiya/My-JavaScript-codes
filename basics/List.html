@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{ align-items: center;
+      
+        background-color:burlywood;
+        padding: 50px;
+        text-align: center; 
+    }
+  
+button:hover {
+    background-color: green;
+    color: white;
+    cursor: pointer;
+}
+li:hover {
+    background-color: lightblue;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+</style>
+<body>
+    <h1>Student List</h1>
+    <input type="text" placeholder="name" id="t1">
+    <button onclick="add()">Add Student</button>
+    <ol id="t2"   style="list-style-position: inside;">
+        <li>jiya</li>
+        <li>riya</li>
+    </ol>
+
+    <script>
+        function add() {
+            var name = document.getElementById('t1').value;
+            if (name.trim() !== "") {
+                var li = document.createElement("li"); // Create a new <li> element
+                li.innerText = name; // Set the text inside <li>
+                document.getElementById("t2").appendChild(li); // Append it to the list
+                document.getElementById("t1").value = ""; // Clear the input box
+            }
+        }
+    </script>
+</body>
+</html>
