@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADDintoLIST</title>
+</head>
+<body>
+  <div
+    style="text-align: center; background-color: bisque; padding: 10px"
+    class="parent"
+  >
+    <ul id="myList">
+      <li>Javascript</li>
+    </ul>
+  </div>
+
+  <script>
+    function list(langname) {
+      const li = document.createElement("li");
+      li.innerText = langname;
+
+      // Append to the existing list
+      document.querySelector("#myList").appendChild(li);
+    }
+
+    list("Java"); // ✅ adds "Java" to the list
+  </script>
+</body>
+</html>
