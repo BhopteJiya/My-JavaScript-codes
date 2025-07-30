@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body>
+    <div class="parent">
+        <h1 class="day" >MONDAY</h1>
+        <h1 class="day" >TUESDAY</h1>
+        <h1 class="day" >THURSDAY</h1>
+        <h1 class="day" >WEDNESDAY</h1>
+    </div>
+    <script>
+        console.log("NEXT");
+        const parent=document.querySelector('.parent');
+        console.log(parent);
+        console.log(parent.children);
+        console.log(parent.children[1].innerHTML);
+        console.log("NEXT");
+        const dayone=document.querySelector('.day');
+        console.log(dayone);
+        console.log(dayone.parentElement);
+        console.log(dayone.nextElementSibling);
+
+        console.log("NODES :", parent.childNodes);
+
+        console.log("MAke a new div with js");
+        const div=document.createElement("div");
+        console.log(div);
+        div.className="main";
+        div.id=Math.round(Math.random());
+        div.setAttribute("title", "generated title")
+        const addText=document.createTextNode("code and only code ");
+        div.appendChild(addText)
+        div.style.backgroundColor ="green";
+        document.body.appendChild(div);
+        
+        
+    </script>
+    
+</body>
+</html>

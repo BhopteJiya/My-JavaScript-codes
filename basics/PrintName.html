@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="username" placeholder="Enter your name">
+<button onclick="getInput()">Submit</button>
+<p id="output"></p>\
+<button onclick="clearInput()">Clear</button>
+
+
+
+    <script>
+       
+    function getInput() {
+    let name = document.getElementById("username").value;
+    document.getElementById("output").innerText = "Hello, " + name;
+
+}
+function clearInput(){
+    document.getElementById("username").value = "";   // Clears input field
+    document.getElementById("output").innerText = ""; // Clears output <p>
+
+}
+
+    </script>
+</body>
+</html>

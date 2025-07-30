@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N Subject Marks Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            margin: 5px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        span {
+            font-weight: bold;
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>N Subject Marks Calculator</h1>
+
+    <input type="number" id="numSubjects" placeholder="Enter number of subjects">
+    <button onclick="generateInputs()">Generate</button>
+    
+    <div id="inputsContainer"></div>
+
+    <button onclick="calc()">Calculate</button>
+
+    <h3>Total: <span id="total"></span></h3>
+    <h3>Percentage: <span id="percentage"></span>%</h3>
+</div>
+
+<script>
+    function generateInputs() {
+        const n = parseInt(document.getElementById("numSubjects").value);
+        const container = document.getElementById("inputsContainer");
+        container.innerHTML = "";
+
+        if (isNaN(n) || n <= 0) {
+            alert("Please enter a valid number of subjects");
+            return;
+        }
+
+        for (let i = 1; i <= n; i++) {
+            const input = document.createElement("input");
+            input.type = "number";
+            input.placeholder = "Marks for subject " + i;
+            input.className = "marks";
+            container.appendChild(input);
+            container.appendChild(document.createElement("br"));
+        }
+    }
+
+    function calc() {
+        const inputs = document.getElementsByClassName("marks");
+        let total = 0;
+        let maxTotal = 0;
+
+        for (let input of inputs) {
+            const marks = parseFloat(input.value) || 0;
+            total += marks;
+            maxTotal += 100; // Assuming each subject is out of 100 marks
+        }
+
+        const percentage = (total / maxTotal) * 100;
+
+        document.getElementById("total").innerText = total;
+        document.getElementById("percentage").innerText = percentage.toFixed(2);
+    }
+</script>
+
+</body>
+</html>

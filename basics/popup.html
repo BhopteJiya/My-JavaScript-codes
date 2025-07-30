@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My First JS Page</title>
+</head>
+<body>
+
+<h1>Hello, World!</h1>
+
+<button onclick="showMessage()">Click Me</button>
+
+<script>
+function showMessage() {
+    var nation = prompt("Are you Indian? (y/n)");
+
+    if (nation == "y" || nation == "Y") {
+        var age = parseInt(prompt("Your age:"));
+        
+        if (age >= 18) {
+            document.write("<h1>You can vote!</h1>");
+        } else {
+            document.write("<h1>Not allowed to vote.</h1>");
+        }
+    } else {
+        alert("Only Indians are allowed to check voting eligibility.");
+    }
+
+  
+}
+</script>
+
+</body>
+</html>

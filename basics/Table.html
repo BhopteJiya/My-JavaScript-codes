@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddStudent
+    </title>
+</head>
+<style>
+    body{
+        padding: 20px;
+        background-color: rgb(210, 183, 174);
+    }
+    table, th, td {
+    margin: 20px;
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 20px;
+    margin-left: 108px;
+    
+}
+.input{
+  
+flex: auto;
+
+   margin-left: 80px;
+  padding: 10px;
+  flex-direction: column;
+
+  align-items: center;
+}
+button{
+  margin-left: 105px;
+}
+h1{text-align: center;}
+  
+.inp{
+  margin: 15px;
+  height: 50px;
+  width: 250px;
+}
+</style>
+<body>
+    <h1  >Add New Student</h1>
+    <div  class="input">
+
+      <input type="number" placeholder="rollnum" class="inp"  id="roll">
+      <input type="text" placeholder="name" class="inp" id="name">
+      <input type="text" placeholder="branch" id="branch"class="inp">
+      <input type="number" placeholder="jsmarks" id="js"class="inp">
+      <input type="number" placeholder="oopsmarks" id="oop" class="inp">
+      <input type="number" placeholder="dbmsMarks" id="db" class="inp">
+    </div>
+
+    <button onclick="add()" >Add Details</button>
+
+    <!--table-->
+    <table  >
+     <thead>
+  <tr> 
+    <th>Rollnumber</th>
+    <th>Name</th>
+    <th>Branch</th>
+    <th>JavaScript</th>
+    <th>DBMS</th>
+    <th>OOP</th>
+  </tr>
+</thead>
+
+        
+    <tbody id="studentTable">
+      <!-- New student rows will be added here -->
+    </tbody>
+    </table>
+    <script>
+const add=()=>{
+         const roll = document.getElementById("roll").value.trim();
+      const name = document.getElementById("name").value.trim();
+      const branch = document.getElementById("branch").value.trim();
+      const js = document.getElementById("js").value.trim();
+      const db = document.getElementById("db").value.trim();
+      const oop = document.getElementById("oop").value.trim();
+
+
+    if (!roll || !name || !branch || !js || !db || !oop) {
+        alert("Please fill in all fields!");
+        return;
+      }
+    const table = document.getElementById("studentTable");
+    const row = table.insertRow();
+
+      row.innerHTML = `
+    <td>${roll}</td>
+    <td>${name}</td>
+    <td>${branch}</td>
+    <td>${js}</td>
+    <td>${db}</td>
+    <td>${oop}</td>
+  `;
+  // Clear input fields
+  document.getElementById("roll").value = "";
+  document.getElementById("name").value = "";
+  document.getElementById("branch").value = "";
+  document.getElementById("js").value = "";
+  document.getElementById("db").value = "";
+  document.getElementById("oop").value = "";
+};
+
+
+
+
+
+</script>
+</body>
+</html>
