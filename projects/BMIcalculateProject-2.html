@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI calculator</title>
+</head>
+<style>
+    body{
+         
+       min-height: 100vh;  
+     
+        
+        background-color: rgb(172, 206, 239);
+
+    }
+    button{
+        margin: 30px;
+        border: 5px solid black;
+    }
+    .h{
+        padding: 10px;
+    }
+    .w{
+              padding: 10px;
+
+    }
+    .box{
+          display: flex;
+    justify-content: center;
+    gap: 40px; /* space between boxes */
+    align-items: flex-start; /* aligns tops */
+    margin-top: 50px;
+}
+       
+   
+table{
+    border: 5px solid black;
+
+}
+table, th, td {
+      border: 2px solid black;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    #butto:hover{
+        
+        background-color: aqua;
+       transform: scale(1.02);
+    }
+
+</style>
+<body>
+    <div  class="box">
+<div class="1" >
+
+    <h1>Calculate your BMI</h1>
+    <form>
+        
+        <div class="h" >
+            <label>Height in Centimeter :</label>
+            <input type="text" id="height" placeholder="Enter value">
+        </div>
+        <div class="w" >
+            <label>Weight in Kilomter :</label>
+            <input  id="weight"  type="text" placeholder="Enter value">
+        </div>
+        <button id="butto" >Calculate</button>
+        <div id="result" ></div>
+    </div>
+        <div class="2" >
+            <p>
+               <h2>
+                   📊 BMI Classification Chart
+               </h2>
+               <table>
+                <thead>
+                    BMI Range	Category
+                </thead>
+                <tr>
+                    <th>measure</th>
+                    <th>results</th>
+                </tr>
+                <tr>
+                    <td>Less than 18.5   </td>
+                    <td>Underweight 🧍‍♀️
+                    </td>
+                </tr>
+                <tr>
+                    <td>18.5 – 24.9</td>
+                    <td>Normal weight ✅</td>
+                </tr>
+                <tr>
+                    <td>25 – 29.9</td>
+                    <td>Overweight ⚠️</td>
+            </tr>
+            <tr> 
+                <td>30 – 34.9</td>
+                <td>Obesity Class 1 🔴</td>
+            </tr>
+            <tr>
+                <td>35 – 39.9</td>
+                <td>Obesity Class 2 🔴🔴</td>
+            </tr>
+            <tr>
+                <td>40 or more</td>
+                <td>Obesity Class 3 🔴🔴🔴 </td>
+            </tr>
+               </table>
+
+            </p>
+        </div>
+    </form>
+</div>
+</body>
+<script>
+    const form=document.querySelector('form');
+    form.addEventListener("submit",function(e){
+    e.preventDefault();
+        const height=parseInt(document.querySelector("#height").value)
+        const weight=parseInt(document.querySelector("#weight").value)       
+        const result=document.querySelector("#result")
+
+    if(height===''|| isNaN(height) || height<0){
+        result.innerHTML='height is not valid';
+    }
+    else if(weight===''||isNaN(weight) || weight<0){
+        result.innerHTML='weight is not valid';
+    }
+    else{
+        const bmi=(weight/((height*height)/10000)).toFixed(2);
+        result.innerHTML=` BMI : ${bmi}`;
+    }
+});
+</script>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //-----------1
+const promiseOne=new Promise(function(resolve,reject){
+    //do any async task
+    //do any db calls,cryptography,network
+
+    setTimeout(function(){
+  console.log('async function is running');
+   resolve();
+},2000)
+})
+promiseOne.then(function(){
+    console.log("promise consumed1")
+});
+
+//----------2
+const promiseTwo=new Promise(function(resolve,reject){
+    setTimeout(function(){
+        console.log('async function 1');
+        resolve();
+    },1000)
+})
+promiseTwo.then(function(){
+    console.log('async func 2');
+})
+
+//------3
+const promiseThree = new Promise(function(resolve,reject){
+    setTimeout(function(){
+        console.log('hii');
+        let error=false;
+         if(!error){
+        resolve({ name:"myy name is lakhannn"});
+         }else{
+        reject("idher kuchh gadbad haii biduuu");
+     
+    }
+    })
+})
+promiseThree.then(function(user){
+    console.log('userr');
+    return user.name;
+}).then((name)=>{
+    console.log('name');
+}).catch(function(error){
+    console.log('errorrr aara haii ');
+}).finally(()=>{
+    console.log('chahe resolve ho ya reject ye tohh hona hi haii printt ');
+})
+
+
+console.log('rukkooooooo');
+
+
+const promiseTf = new Promise(function(resolve,reject){
+    setTimeout(function(){
+        console.log('hii');
+        let error=false;
+         if(!error){
+        resolve({ name:"myy name is lakhannn"});
+         }else{
+        reject("idher kuchh gadbad haii biduuu");
+     
+    }
+    },1000)
+})
+async function promiseTff(){
+    try{
+    const response=await promiseTf
+    console.log(response);
+    }
+    catch{
+        console.log('error');
+    }
+}
+
+// getAllUsers()
+fetch('https://api.github.com/users/hiteshchoudhary')
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => console.log(error));
+
+
+</script>
+</html>
